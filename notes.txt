@@ -1,6 +1,7 @@
 #fonts
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Roboto&display=swap" rel="stylesheet">
 
 font-family: 'Comic Neue', cursive;
+font-family: 'Roboto', sans-serif;
