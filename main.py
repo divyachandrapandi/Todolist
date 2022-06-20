@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_share import Share
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from flask_bootstrap import Bootstrap
 import os
 from dotenv import load_dotenv
 # --------------app config-----------------------#
@@ -77,20 +74,10 @@ def filter(category):
             t = todo.title
             print(t)
     return render_template('index.html', todo_list=default_todo)
-#
-# @app.route("/filter/<category>", methods=["POST","GET"])
-# def filterbywork(category):
-#     work_todo = TodoModel.query.get(category)
-#     return render_template('index.html', todo_list=work_todo)
-#
-# @app.route("/filter/<category>", methods=["POST","GET"])
-# def filterbystudy(category):
-#     study_todo = TodoModel.query.get(category)
-#     return render_template('index.html', todo_list=study_todo)
+
 
 
 if __name__ == "__main__":
     app.run(host="192.168.68.111", port=5000, debug=True)
 
 
-# <!--                    {% if todo.task_status%} checked {%endif%}-->

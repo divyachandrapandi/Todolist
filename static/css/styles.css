@@ -1,8 +1,121 @@
+/*COMMON ELEMENT*/
+
+h3{
+    font-size:3rem;}
+
+h6{
+    font-size:2rem;
+}
+
+p{
+font-size:1.5rem;}
+
+@media (max-width:600px){
+h3{
+    font-size:2rem;}
+
+h6{
+    font-size:1rem;
+}
+
+p{
+font-size:0.75rem;}
+}
+
+@media (min-width:600px) and (max-width:900px){
+h3{
+    font-size:2.5rem;}
+
+h6{
+    font-size:1.5rem;
+}
+
+p{
+font-size:0.95rem;}
+}
+
+
 /*------------------CONTENT----------------------------------*/
+/* -----------------HEADER----------------------------------*/
+.header-section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+    background-image: url('../images/planner.jpg');
+    background-position: left bottom;
+    background-repeat:no-repeat;
+    background-size:cover;
+    color:black;
+    opacity:0.9;
+    }
 
+.hr-title-text{
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    margin-inline:auto;
 
+    }
+/*-------------------CREATE TASK------------------------------*/
 
+.todo-container{
+    font-family: 'Comic Neue', cursive;
+    font-weight:700;}
 
+.create-todo-container{
+    font-family: 'Comic Neue', cursive;
+    font-weight:700;
+    margin:5% auto;
+    text-align:center;
+}
+
+.create-row{
+    justify-content:end;
+    align-items:space-evenly;
+    width:80%;
+    margin-inline:auto;
+    }
+
+.share-button, .filter-button{
+
+    width:auto;
+    margin-top:1%;
+    }
+
+/* ------------------tASK-----------------------------------*/
+.todo-container{
+    background-image: url('../images/todo2.jpg');
+}
+
+.check-mark{
+    color:green;
+    font-size:3rem;}
+
+.task-first-line{
+
+}
+.name-date, .item-name, .item-date, .date-edit-container, .delete-button{
+display:inline-block;}
+
+.name-date{
+    width:auto;}
+.item-date h6{
+    font-weight:900;}
+
+@media (max-width:600px){
+.check-mark{
+    font-size:1.5rem;}
+
+.date-form a{
+    font-size:0.95rem;}}
+
+@media (min-width:600px) and (max-width:900px){
+.check-mark{
+    font-size:2rem;}
+
+.date-form a{
+    font-size:1rem;}
+}
 
 /* ------------------FOOTER-SECTION--------------------------*/
 .footer-section{
@@ -12,7 +125,7 @@
 
 .footer-nav{
     display:flex;
-    position:
+
     gap:1rem;
     width:100%;
     justify-content:center;
