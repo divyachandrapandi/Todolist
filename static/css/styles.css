@@ -1,0 +1,24 @@
+/*------------------CONTENT----------------------------------*/
+
+
+
+
+
+/* ------------------FOOTER-SECTION--------------------------*/
+.footer-section{
+    width:100%;
+    text-align:center;
+    }
+
+.footer-nav{
+    display:flex;
+    position:
+    gap:1rem;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    }
+
+.footer-link{
+    margin-left:1rem;
+    }

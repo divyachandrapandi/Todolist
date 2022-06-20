@@ -1,10 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ToDoList</title>
-</head>
-<body>
+{%extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<!--form to create new items-->
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#share" role="button" aria-expanded="false" aria-controls="share">
+                        Share</a>
+                    <div class="collapse" id="share">
+                        <p>{{share.create(title='Via:', sites='facebook,twitter,google')}}</p>
+                        </div>
+
+
+<div>
+
+    <form name="item-form" action="{{url_for('add')}}" method="post">
+        <div>
+            <select name="category" class="form-select">
+                <option selected> category</option>
+                <option value="Default" name="default">Default</option>
+                <option value="Work" name="work">Work</option>
+                <option value="Study" name="study">Study</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" class="form-control" name="todo_title" id="todo_title" placeholder="Type here to add task" maxlength="40">
+        </div>
+    </form>
+</div>
+
+<!--filterbycategory-->
+<!--Dropdown menu-->
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton41" data-bs-toggle="dropdown" aria-expanded="false">
+        FilterByCategory
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="{{url_for('filter', category='Default')}}">Default</a></li>
+        <li><a class="dropdown-item" href="{{url_for('filter', category='Work')}}">Work</a></li>
+        <li><a class="dropdown-item" href="{{url_for('filter', category='Study')}}">Study</a></li>
+        <li><a class="dropdown-item" href="{{url_for('filter', category='nofilter')}}">NoFilter</a></li>
+    </ul>
+</div>
+
+<!--display all-ttodo list-->
+<div>
+    <ul>
+        {% for todo in todo_list:%}
+        <form action="{{url_for('update', todo_id = todo.id)}}" method="post" class="date-form" autocomplete="off">
+        <li class="list-group-item">
+            <div class="item-align">
+<!--                Button for item completion update-->
+
+                <a class="btn btn-primary"  href="{{url_for('complete', todo_id=todo.id)}}" role="button" >
+                        Update Status</a>
+                {%if todo.task_status:%}
+                         <span style="color:green;"><i class="fa-solid fa-square-check"></i> </span>
+                {%endif%}
+<!--                name display-->
+                <div class="name-date">
+                    <p class="item-name">{{todo.title}}</p>
+<!--                    date display-->
+                    {%if not todo.date:%}
+                            <p class="item-date">No duedate</p>
+                    {%else%}
+                        <p class="item-date">{{todo.date}}</p>
+                    {%endif%}
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#calendar" role="button" aria-expanded="true" aria-controls="calendar">
+                        Update Date</a>
+                    <div class="collapse" id="calendar">
+                        <div>
+                            <input type="date" id="DueDate{{todo.id}}" name="date" onchange="this.form.submit()"/>
+                             <span><i class="fa-calendar"></i></span>
+                        </div>
+
+                        </div>
+                </div>
+            </div>
+            <div class="delete-button">
+                <a class="btn btn-primary"  href="{{url_for('delete',todo_id=todo.id)}}" role="button"> Delete Task</a>
+
+            </div>
+            TITLE:  {{todo.title}},CATEGORY: {{todo.category}}, <BR>
+            DATE: {{todo.date}}, STATUS: {{todo.task_status}}, OVERDUE: {{todo.overdue}}
+        </li>
+
+        </form>
+        {%endfor%}
+    </ul>
+</div>
+
+{% endblock %}
